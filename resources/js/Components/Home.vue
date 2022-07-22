@@ -38,9 +38,10 @@ export default {
     mounted() {
         let that = this;
         //12. Create echo monitor
-        // Echo.channel("message").listen("MessageCreated", (e) => {
-        //     that.names.push(e.name);
-        // });
+        Echo.channel("message").listen("MessageCreated", (e) => {
+            that.names.push(e.name);
+            console.log(e);
+        });
     },
     methods: {
         increment(event) {
