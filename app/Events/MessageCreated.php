@@ -40,10 +40,10 @@ class MessageCreated implements ShouldBroadcast
      *
      * @return string
      */
-    // public function broadcastAs()
-    // {
-    //     return 'MessageCreated';
-    // }
+    public function broadcastAs()
+    {
+        return 'UserEvent';
+    }
 
     /**
      *Specifies the broadcast data.
