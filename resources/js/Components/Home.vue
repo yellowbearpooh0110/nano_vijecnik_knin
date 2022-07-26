@@ -37,10 +37,9 @@ export default {
     },
     mounted() {
         let that = this;
-        //12. Create echo monitor
-        Echo.channel("message").listen(".UserEvent", (e) => {
-            that.names.push(e.name);
-            console.log(e);
+        Echo.channel("user-channel").listen(".UserEvent", (data) => {
+            that.names.push(data.title);
+            console.log(data);
         });
     },
     methods: {

@@ -2,19 +2,20 @@
 
 namespace App\Events;
 
-use Carbon\Carbon;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
-use Illuminate\Foundation\Events\Dispatchable;
-use Illuminate\Queue\SerializesModels;
 
 class MessageCreated implements ShouldBroadcastNow
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use InteractsWithSockets, SerializesModels;
+
+    public $data = ['asas'];
 
     /**
      * Create a new event instance.
@@ -23,7 +24,6 @@ class MessageCreated implements ShouldBroadcastNow
      */
     public function __construct()
     {
-        //
     }
 
     /**
@@ -45,15 +45,13 @@ class MessageCreated implements ShouldBroadcastNow
     {
         return 'UserEvent';
     }
-
     /**
-     *Specifies the broadcast data.
+     * The event's broadcast name.
      *
-     * @return array
+     * @return string
      */
     public function broadcastWith()
     {
-        //Return to current time
-        return ['name' => Carbon::now()->toDateTimeString()];
+        return ['title' => 'This notification from ItSolutionStuff.com'];
     }
 }
