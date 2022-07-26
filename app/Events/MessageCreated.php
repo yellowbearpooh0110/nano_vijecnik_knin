@@ -33,7 +33,7 @@ class MessageCreated implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new Channel('message');
+        return new Channel('user-channel');
     }
 
     /**
